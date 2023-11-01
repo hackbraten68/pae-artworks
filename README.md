@@ -1,2 +1,2 @@
 # pae-artworks
- reboot in static vanilla
+ reboot in a single index.html file
