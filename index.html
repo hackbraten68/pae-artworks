@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="body-wrapper max-w-screen-xl mx-auto">
-        <header class="bg-gray-800 py-5 px-10">
+        <header class="bg-gray-800 py-5 px-10 rounded-t-none rounded-b-lg">
             <nav class="flex justify-between items-center px-5">
                 <div>
                     <a href="/" class="text-white text-2xl font-bold">Gallery</a>
@@ -26,254 +26,145 @@
                 </div>
             </nav>
         </header>
-    
-        
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-    <div class="grid gap-4">
-        <div>
-            <!-- MODAL -->
-            <div x-data="{ open: false }" class="flex justify-center">
-                <!-- Trigger -->
-                <span x-on:click="open = true">
-                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg" alt="">
-                </span>
-             
-                <!-- Slideover -->
-                <div
-                    x-dialog
-                    x-model="open"
-                    style="display: none"
-                    class="fixed inset-0 overflow-hidden z-10"
-                >
-                    <!-- Overlay -->
-                    <div x-dialog:overlay x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50"></div>
-             
-                    <!-- Panel -->
-                    <div class="fixed inset-y-0 right-0 max-w-lg w-full">
-                        <div
-                            x-dialog:panel
-                            x-transition:enter="transition ease-out duration-300"
-                            x-transition:enter-start="translate-x-full"
-                            x-transition:enter-end="translate-x-0"
-                            x-transition:leave="transition ease-in duration-300"
-                            x-transition:leave-start="translate-x-0"
-                            x-transition:leave-end="translate-x-full"
-                            class="h-full w-full"
-                        >
-                            <div class="h-full flex flex-col justify-between bg-white shadow-lg overflow-y-auto">
-                                <!-- Close Button -->
-                                <div class="absolute top-0 right-0 pt-4 pr-4">
-                                    <button type="button" @click="$dialog.close()" class="bg-gray-50 rounded-lg p-2 text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
-                                        <span class="sr-only">Close slideover</span>
-             
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
-                                </div>
-             
-                                <!-- Body -->
-                                <div class="p-8">
-                                    <!-- Title -->
-                                    <h2 x-dialog:title class="text-3xl font-bold">Slideover Title</h2>
-             
-                                    <!-- Content -->
-                                    <p class="mt-4 text-gray-600 flex-1">Your slideout text and content goes here.</p>
-                                </div>
-             
-                                <!-- Footer -->
-                                <div class="p-4 flex justify-end space-x-2 bg-gray-50">
-                                    <button type="button" x-on:click="$dialog.close()" class="text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg px-5 py-2.5">
-                                        Close
-                                    </button>
-             
-                                    <button type="button" x-on:click="$dialog.close()" class="bg-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 px-5 py-2.5 rounded-lg text-white">
-                                        Take Action
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <!-- MODAL -->
-            <div x-data="{ open: false }" class="flex justify-center">
-                <!-- Trigger -->
-                <span x-on:click="open = true">
-                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg" alt="">
-                </span>
-             
-                <!-- Slideover -->
-                <div
-                    x-dialog
-                    x-model="open"
-                    style="display: none"
-                    class="fixed inset-0 overflow-hidden z-10"
-                >
-                    <!-- Overlay -->
-                    <div x-dialog:overlay x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50"></div>
-             
-                    <!-- Panel -->
-                    <div class="fixed inset-y-0 right-0 max-w-lg w-full">
-                        <div
-                            x-dialog:panel
-                            x-transition:enter="transition ease-out duration-300"
-                            x-transition:enter-start="translate-x-full"
-                            x-transition:enter-end="translate-x-0"
-                            x-transition:leave="transition ease-in duration-300"
-                            x-transition:leave-start="translate-x-0"
-                            x-transition:leave-end="translate-x-full"
-                            class="h-full w-full"
-                        >
-                            <div class="h-full flex flex-col justify-between bg-white shadow-lg overflow-y-auto">
-                                <!-- Close Button -->
-                                <div class="absolute top-0 right-0 pt-4 pr-4">
-                                    <button type="button" @click="$dialog.close()" class="bg-gray-50 rounded-lg p-2 text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
-                                        <span class="sr-only">Close slideover</span>
-             
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
-                                </div>
-             
-                                <!-- Body -->
-                                <div class="p-8">
-                                    <!-- Title -->
-                                    <h2 x-dialog:title class="text-3xl font-bold">Slideover Title</h2>
-             
-                                    <!-- Content -->
-                                    <p class="mt-4 text-gray-600 flex-1">Your slideout text and content goes here.</p>
-                                </div>
-             
-                                <!-- Footer -->
-                                <div class="p-4 flex justify-end space-x-2 bg-gray-50">
-                                    <button type="button" x-on:click="$dialog.close()" class="text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg px-5 py-2.5">
-                                        Close
-                                    </button>
-             
-                                    <button type="button" x-on:click="$dialog.close()" class="bg-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 px-5 py-2.5 rounded-lg text-white">
-                                        Take Action
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <!-- MODAL -->
-            <div x-data="{ open: false }" class="flex justify-center">
-                <!-- Trigger -->
-                <span x-on:click="open = true">
-                    <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg" alt="">
-                </span>
-             
-                <!-- Slideover -->
-                <div
-                    x-dialog
-                    x-model="open"
-                    style="display: none"
-                    class="fixed inset-0 overflow-hidden z-10"
-                >
-                    <!-- Overlay -->
-                    <div x-dialog:overlay x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50"></div>
-             
-                    <!-- Panel -->
-                    <div class="fixed inset-y-0 right-0 max-w-lg w-full">
-                        <div
-                            x-dialog:panel
-                            x-transition:enter="transition ease-out duration-300"
-                            x-transition:enter-start="translate-x-full"
-                            x-transition:enter-end="translate-x-0"
-                            x-transition:leave="transition ease-in duration-300"
-                            x-transition:leave-start="translate-x-0"
-                            x-transition:leave-end="translate-x-full"
-                            class="h-full w-full"
-                        >
-                            <div class="h-full flex flex-col justify-between bg-white shadow-lg overflow-y-auto">
-                                <!-- Close Button -->
-                                <div class="absolute top-0 right-0 pt-4 pr-4">
-                                    <button type="button" @click="$dialog.close()" class="bg-gray-50 rounded-lg p-2 text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
-                                        <span class="sr-only">Close slideover</span>
-             
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
-                                </div>
-             
-                                <!-- Body -->
-                                <div class="p-8">
-                                    <!-- Title -->
-                                    <h2 x-dialog:title class="text-3xl font-bold">Slideover Title</h2>
-             
-                                    <!-- Content -->
-                                    <p class="mt-4 text-gray-600 flex-1">Your slideout text and content goes here.</p>
-                                </div>
-             
-                                <!-- Footer -->
-                                <div class="p-4 flex justify-end space-x-2 bg-gray-50">
-                                    <button type="button" x-on:click="$dialog.close()" class="text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg px-5 py-2.5">
-                                        Close
-                                    </button>
-             
-                                    <button type="button" x-on:click="$dialog.close()" class="bg-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 px-5 py-2.5 rounded-lg text-white">
-                                        Take Action
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg" alt="">
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg" alt="">
-        </div>
-    </div>
-    <div class="grid gap-4">
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg" alt="">
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg" alt="">
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg" alt="">
-        </div>
-    </div>
-    <div class="grid gap-4">
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg" alt="">
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg" alt="">
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg" alt="">
-        </div>
-    </div>
-    <div class="grid gap-4">
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg" alt="">
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg" alt="">
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg" alt="">
-        </div>
-    </div>
-</div>
 
+        <div x-data="galerieData()">
+            <div id="gallery" class="grid grid-cols-2 md:grid-cols-4 gap-4 py-4" x-html="galerieHTML"></div>
+        </div>
     </div>
-
 </body>
 </html>
+<script>
+
+function galerieData() {
+    return {
+        bilder: [
+            { title: 'Bild 1',
+              year: '2020',
+              size: '120x80cm',
+              desc: 'tsahfjksdfgahsdhfbankscdlkjasbdlfkjbasdjklfgkjdfkasjdbfkjabsdjkgfjh',
+              src: 'https://source.unsplash.com/800x600/?random', 
+              alt: 'Bild 1' 
+            },
+            { title: 'Bild 2',
+              year: '2020',
+              size: '120x80cm',
+              desc: '',
+              src: 'https://source.unsplash.com/800x600/?random', 
+              alt: 'Bild 1' 
+            },
+            { title: 'Bild 3',
+              year: '2020',
+              size: '120x80cm',
+              desc: '',
+              src: 'https://source.unsplash.com/800x600/?random', 
+              alt: 'Bild 1' 
+            },
+            { title: 'Bild 4',
+              year: '2020',
+              size: '120x80cm',
+              desc: '',
+              src: 'https://source.unsplash.com/800x600/?random', 
+              alt: 'Bild 1' 
+            },
+            { title: 'Bild 5',
+              year: '2020',
+              size: '120x80cm',
+              desc: '',
+              src: 'https://source.unsplash.com/800x600/?random', 
+              alt: 'Bild 1' 
+            },
+            { title: 'Bild 6',
+              year: '2020',
+              size: '120x80cm',
+              desc: '',
+              src: 'https://source.unsplash.com/800x600/?random', 
+              alt: 'Bild 1' 
+            },
+            { title: 'Bild 7',
+              year: '2020',
+              size: '120x80cm',
+              desc: '',
+              src: 'https://source.unsplash.com/800x600/?random', 
+              alt: 'Bild 1' 
+            },
+            { title: 'Bild 8',
+              year: '2020',
+              size: '120x80cm',
+              desc: '',
+              src: 'https://source.unsplash.com/800x600/?random', 
+              alt: 'Bild 1' 
+            },
+        ],
+        sortiereNachJahr: function () {
+            this.bilder.sort(function (a, b) {
+                return a.jahr - b.jahr;
+            });
+        },
+        galerieHTML: function () {
+            return this.bilder.map(function (bild) {
+                return `
+                    <div x-data="{ open: false }" class="flex justify-center">
+                        <!-- Trigger -->
+                        <span x-on:click="open = true">
+                            <img
+                            class="rounded-md " 
+                            src="${bild.src}" 
+                            alt="${bild.alt}" 
+                            data-jahr="${bild.jahr}">
+                        </span>
+
+                        <!-- Modal -->
+                        <div
+                            x-show="open"
+                            style="display: none"
+                            x-on:keydown.escape.prevent.stop="open = false"
+                            role="dialog"
+                            aria-modal="true"
+                            x-id="['modal-title']"
+                            :aria-labelledby="$id('modal-title')"
+                            class="fixed inset-0 z-10 overflow-y-auto"
+                        >
+                            <!-- Overlay -->
+                            <div x-show="open" x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50"></div>
+
+                            <!-- Panel -->
+                            <div
+                                x-show="open" x-transition
+                                x-on:click="open = false"
+                                class="relative flex min-h-screen items-center justify-center p-4"
+                            >
+                                <div
+                                    x-on:click.stop
+                                    x-trap.noscroll.inert="open"
+                                    class="relative w-full max-w-2xl overflow-y-auto rounded-xl bg-white p-12 shadow-lg"
+                                >
+                                    <!-- Title -->
+                                    <h2 class="text-2xl font-bold" :id="$id('modal-title')">${bild.title}</h2>
+
+                                    <!-- Content -->
+                                    <img class="rounded-md" src="${bild.src}" alt="${bild.alt}">
+                                    <div>
+                                        <p class="mt-2 text-gray-600"><span class="font-bold">Beschreibung: </span>${bild.desc}</p>
+                                        <p class="mt-2 text-gray-600"><span class="font-bold">Abmessungen: </span>${bild.size}</p>
+                                    </div>
+
+                                    <!-- Buttons -->
+                                    <div class="mt-8 flex space-x-2">
+                                        <button type="button" x-on:click="open = false" class="rounded-md border border-gray-200 bg-white px-5 py-2.5">
+                                            Preis anfragen
+                                        </button>
+
+                                        <button type="button" x-on:click="open = false" class="rounded-md border border-gray-200 bg-white px-5 py-2.5">
+                                            Back
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+            }).join('');
+        },
+    };
+}
+
+</script>
