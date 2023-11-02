@@ -21,15 +21,87 @@
                 </div>
                 <div class="space-x-4">
                     <a href="/" class="text-white hover:text-gray-400">Home</a>
-                    <a href="/about" class="text-white hover:text-gray-400">About</a>
-                    <a href="/contact" class="text-white hover:text-gray-400">Contact</a>
+                    <a href="#ausstellungen" class="text-white hover:text-gray-400">Ausstellungen</a>
+                    <a href="#kontakt" class="text-white hover:text-gray-400">Kontakt</a>
                 </div>
             </nav>
         </header>
 
+        <div class="mt-6 mb-2 p-5">
+            <h3 class="text-5xl">Hello World</h3>
+            <p class="text-md">Some random text</p>
+        </div>
+
         <div x-data="galerieData()">
+            <!-- <button class="mt-8 flex space-x-2" @click="sortiereNachJahr">
+                Nach Jahr sortieren
+            </button> --> 
             <div id="gallery" class="grid grid-cols-2 md:grid-cols-4 gap-4 py-4" x-html="galerieHTML"></div>
         </div>
+        <div id="#ausstellungen">
+            
+        </div>
+
+        <footer class="bg-gray-800 text-white py-5 px-10 rounded-b-none rounded-t-lg">
+            <div class="container mx-auto flex justify-between items-center">
+                <div>
+                    <p><a href="mailto:deine-email@example.com" class="underline">deine-email@example.com</a></p>
+                </div>
+                <div>
+                    <div x-data="{ open: false }" class="flex justify-center">
+                        <!-- Trigger -->
+                        <span x-on:click="open = true">
+                            <p class="cursor-pointer hover:text-gray-400">Impressum</p>
+                        </span>
+
+                        <!-- Modal -->
+                        <div
+                            x-show="open"
+                            style="display: none"
+                            x-on:keydown.escape.prevent.stop="open = false"
+                            role="dialog"
+                            aria-modal="true"
+                            x-id="['modal-title']"
+                            :aria-labelledby="$id('modal-title')"
+                            class="fixed inset-0 z-10 overflow-y-auto"
+                        >
+                            <!-- Overlay -->
+                            <div x-show="open" x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50"></div>
+
+                            <!-- Panel -->
+                            <div
+                                x-show="open" x-transition
+                                x-on:click="open = false"
+                                class="relative flex min-h-screen items-center justify-center p-4"
+                            >
+                                <div
+                                    x-on:click.stop
+                                    x-trap.noscroll.inert="open"
+                                    class="relative w-full max-w-2xl overflow-y-auto rounded-xl bg-white p-12 shadow-lg"
+                                >
+                                    <!-- Title -->
+                                    <h2 class="text-3xl font-bold" :id="$id('modal-title')">Confirm</h2>
+
+                                    <!-- Content -->
+                                    <p class="mt-2 text-gray-600">Are you sure you want to learn how to create an awesome modal?</p>
+
+                                    <!-- Buttons -->
+                                    <div class="mt-8 flex space-x-2">
+                                        <button type="button" x-on:click="open = false" class="rounded-md border border-gray-200 bg-white px-5 py-2.5">
+                                            Confirm
+                                        </button>
+
+                                        <button type="button" x-on:click="open = false" class="rounded-md border border-gray-200 bg-white px-5 py-2.5">
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 </body>
 </html>
@@ -38,61 +110,147 @@
 function galerieData() {
     return {
         bilder: [
-            { title: 'Bild 1',
-              year: '2020',
-              size: '120x80cm',
-              desc: 'tsahfjksdfgahsdhfbankscdlkjasbdlfkjbasdjklfgkjdfkasjdbfkjabsdjkgfjh',
-              src: 'https://source.unsplash.com/800x600/?random', 
-              alt: 'Bild 1' 
-            },
-            { title: 'Bild 2',
-              year: '2020',
+            { title: 'Feuerkuh',
+              jahr: '2020',
               size: '120x80cm',
               desc: '',
-              src: 'https://source.unsplash.com/800x600/?random', 
-              alt: 'Bild 1' 
+              src: './img/Anprobe_Feuerkuh_2-768x571.jpg', 
+              alt: 'Feuerkuh' 
             },
-            { title: 'Bild 3',
-              year: '2020',
+            { title: 'Krokuh',
+              jahr: '2020',
               size: '120x80cm',
               desc: '',
-              src: 'https://source.unsplash.com/800x600/?random', 
-              alt: 'Bild 1' 
+              src: './img/Anprobe_Krokuh_2-768x588.jpg', 
+              alt: 'Krokuh' 
             },
-            { title: 'Bild 4',
-              year: '2020',
+            { title: 'Kuh',
+              jahr: '2020',
               size: '120x80cm',
               desc: '',
-              src: 'https://source.unsplash.com/800x600/?random', 
-              alt: 'Bild 1' 
+              src: './img/Anprobe_Kuh_2-768x567.jpg', 
+              alt: 'Kuh' 
             },
-            { title: 'Bild 5',
-              year: '2020',
+            { title: 'Kuhl',
+              jahr: '2020',
               size: '120x80cm',
               desc: '',
-              src: 'https://source.unsplash.com/800x600/?random', 
-              alt: 'Bild 1' 
+              src: './img/Anprobe_Kuhl_1-768x580.jpg', 
+              alt: 'Kuhl' 
             },
-            { title: 'Bild 6',
-              year: '2020',
+            { title: 'Kuhpard',
+              jahr: '2020',
               size: '120x80cm',
               desc: '',
-              src: 'https://source.unsplash.com/800x600/?random', 
-              alt: 'Bild 1' 
+              src: './img/Anprobe_Kuhpard_2-768x586.jpg', 
+              alt: 'Kuhpard' 
             },
-            { title: 'Bild 7',
-              year: '2020',
+            { title: 'Kuhraffe',
+              jahr: '2020',
               size: '120x80cm',
               desc: '',
-              src: 'https://source.unsplash.com/800x600/?random', 
-              alt: 'Bild 1' 
+              src: './img/Anprobe_Kuhraffe_2-768x573.jpg', 
+              alt: 'Kuhraffe' 
             },
-            { title: 'Bild 8',
-              year: '2020',
+            { title: 'Kuhrelle',
+              jahr: '2020',
               size: '120x80cm',
               desc: '',
-              src: 'https://source.unsplash.com/800x600/?random', 
-              alt: 'Bild 1' 
+              src: './img/Anprobe_Kuhrelle_2-768x575.jpg', 
+              alt: 'Kuhrelle' 
+            },
+            { title: 'Schokuh',
+              jahr: '2020',
+              size: '120x80cm',
+              desc: '',
+              src: './img/Anprobe_Schokuh_2-768x575.jpg', 
+              alt: 'Schokuh' 
+            },
+            { title: 'Tikuh',
+              jahr: '2020',
+              size: '120x80cm',
+              desc: '',
+              src: './img/Anprobe_Tikuh_2-768x572.jpg', 
+              alt: 'Tikuh' 
+            },
+            { title: 'Batman',
+              jahr: '2020',
+              size: '120x80cm',
+              desc: '',
+              src: './img/Batman-HP-768x515.jpg', 
+              alt: 'Batman' 
+            },
+            { title: 'Captain America',
+              jahr: '2020',
+              size: '120x80cm',
+              desc: '',
+              src: './img/CAFotoInternet-768x512.jpg', 
+              alt: 'Captain America' 
+            },
+            { title: 'Deadpool',
+              jahr: '2020',
+              size: '120x80cm',
+              desc: '',
+              src: './img/Deadpool_I-768x513.jpg', 
+              alt: 'Deadpool' 
+            },
+            { 
+              title: 'Hulk',
+              jahr: '2020',
+              size: '120x80cm',
+              desc: '',
+              src: './img/Hulk-768x513.jpg', 
+              alt: 'Hulk' 
+            },
+            { title: 'Ironman',
+              jahr: '2020',
+              size: '120x80cm',
+              desc: '',
+              src: './img/IronMan_Foto_1-768x494.jpg', 
+              alt: 'Ironman' 
+            },
+            { title: 'Nach Mass',
+              jahr: '2020',
+              size: '120x80cm',
+              desc: '',
+              src: './img/NachMass_3-768x547.jpg', 
+              alt: 'Nach Mass' 
+            },
+            { 
+              title: 'Abends',
+              jahr: '2020',
+              size: '120x80cm',
+              desc: '',
+              src: './img/Abends_3-768x660.jpg', 
+              alt: 'Abends' 
+            },
+            { title: 'Himmelsstuermer',
+              jahr: '2020',
+              size: '120x80cm',
+              desc: '',
+              src: './img/Himmelsstuermer_2-768x1033.jpg', 
+              alt: 'Himmelsstuermer' 
+            },
+            { title: 'Shave',
+              jahr: '2020',
+              size: '120x80cm',
+              desc: '',
+              src: './img/Shave_2-768x577.jpg', 
+              alt: 'Shave' 
+            },
+            { title: 'Yoda',
+              jahr: '2020',
+              size: '120x80cm',
+              desc: '',
+              src: './img/Yoda-768x516.jpg', 
+              alt: 'Yoda' 
+            },
+            { title: 'Zielgruppe',
+              jahr: '2020',
+              size: '120x80cm',
+              desc: '',
+              src: './img/Zielgruppe_2-768x575.jpg', 
+              alt: 'Zielgruppe' 
             },
         ],
         sortiereNachJahr: function () {
@@ -107,7 +265,7 @@ function galerieData() {
                         <!-- Trigger -->
                         <span x-on:click="open = true">
                             <img
-                            class="rounded-md " 
+                            class="rounded-md cursor-pointer" 
                             src="${bild.src}" 
                             alt="${bild.alt}" 
                             data-jahr="${bild.jahr}">
@@ -144,12 +302,13 @@ function galerieData() {
                                     <!-- Content -->
                                     <img class="rounded-md" src="${bild.src}" alt="${bild.alt}">
                                     <div>
-                                        <p class="mt-2 text-gray-600"><span class="font-bold">Beschreibung: </span>${bild.desc}</p>
+                                        <p class="mt-2 text-gray-600 truncate">${bild.desc}</p>
                                         <p class="mt-2 text-gray-600"><span class="font-bold">Abmessungen: </span>${bild.size}</p>
+                                        <p class="mt-2 text-gray-600"><span class="font-bold">Jahr: </span>${bild.jahr}</p>
                                     </div>
 
                                     <!-- Buttons -->
-                                    <div class="mt-8 flex space-x-2">
+                                    <div class="mt-2 flex space-x-2">
                                         <button type="button" x-on:click="open = false" class="rounded-md border border-gray-200 bg-white px-5 py-2.5">
                                             Preis anfragen
                                         </button>
