@@ -3,7 +3,7 @@
 
 ## Blanko Code Snippet
 
-`
+```
 { 
     title: 'Titel',
     jahr: '2020',
@@ -12,4 +12,4 @@
     src: './img/bild_name.jpg', 
     alt: 'alt Beschreibung' 
 },
-`
+```
