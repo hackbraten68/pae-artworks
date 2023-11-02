@@ -12,20 +12,65 @@
         
     </style>
 </head>
-<body>
+<body x-data="galerieData()" x-init="sortiereNachJahr">
     <div class="body-wrapper max-w-screen-xl mx-auto">
-        <header class="bg-gray-800 py-5 px-10 rounded-t-none rounded-b-lg">
-            <nav class="flex justify-between items-center px-5">
-                <div>
-                    <a href="/" class="text-white text-2xl font-bold">Gallery</a>
-                </div>
-                <div class="space-x-4">
-                    <a href="/" class="text-white hover:text-gray-400">Home</a>
-                    <a href="#ausstellungen" class="text-white hover:text-gray-400">Ausstellungen</a>
-                    <a href="#kontakt" class="text-white hover:text-gray-400">Kontakt</a>
-                </div>
-            </nav>
-        </header>
+        <div x-data="{ isMobile: window.innerWidth <= 768 }">
+            <div x-show="isMobile">                
+                <nav 
+                x-data="{ isActive: false }"
+                class="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+                    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                    <a href="#" class="flex items-center">
+                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Gallery</span>
+                    </a>
+                    <button 
+                        data-collapse-toggle="navbar-hamburger" 
+                        type="button" 
+                        class="inline-flex items-center justify-center
+                        p-2 w-10 h-10 ml-3 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 
+                        focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" 
+                        aria-controls="navbar-hamburger" 
+                        aria-expanded="false"
+                        x-cloak
+                        @click="isActive = !isActive">
+                            <span class="sr-only">Open main menu</span>
+                            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                            </svg>
+                    </button>
+                    <div x-show="isActive" class="w-full" id="navbar-hamburger">
+                        <ul class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+                        <li>
+                            <a href="/" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded dark:bg-blue-600" aria-current="page">Home</a>
+                        </li>
+                        <li>
+                            <a href="#austellungen" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Ausstellungen</a>
+                        </li>
+                        <li>
+                            <a href="#kontakt" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Contact</a>
+                        </li>
+                        </ul>
+                    </div>
+                    </div>
+                </nav>
+            </div>
+        
+            <div x-show="!isMobile">
+                <header class="bg-gray-800 py-5 px-10 rounded-t-none rounded-b-lg">
+                    <nav class="flex justify-between items-center px-5">
+                        <div>
+                            <a href="/" class="text-white text-2xl font-bold">Gallery</a>
+                        </div>
+                        <div class="space-x-4">
+                            <a href="/" class="text-white hover:text-gray-400">Home</a>
+                            <a href="#ausstellungen" class="text-white hover:text-gray-400">Ausstellungen</a>
+                            <a href="#kontakt" class="text-white hover:text-gray-400">Kontakt</a>
+                        </div>
+                    </nav>
+                </header>
+            </div>
+        </div>
+        
 
         <div class="mt-6 mb-2 p-5">
             <h3 class="text-5xl">Hello World</h3>
@@ -33,9 +78,9 @@
         </div>
 
         <div x-data="galerieData()">
-            <!-- <button class="mt-8 flex space-x-2" @click="sortiereNachJahr">
+             <button class="mt-8 flex space-x-2" @click="sortiereNachJahr">
                 Nach Jahr sortieren
-            </button> --> 
+            </button> 
             <div id="gallery" class="grid grid-cols-2 md:grid-cols-4 gap-4 py-4" x-html="galerieHTML"></div>
         </div>
         <div id="#ausstellungen">
@@ -111,143 +156,143 @@ function galerieData() {
     return {
         bilder: [
             { title: 'Feuerkuh',
-              jahr: '2020',
-              size: '120x80cm',
+              jahr: '2002',
+              size: '18x24cm',
               desc: '',
               src: './img/Anprobe_Feuerkuh_2-768x571.jpg', 
               alt: 'Feuerkuh' 
             },
-            { title: 'Krokuh',
-              jahr: '2020',
-              size: '120x80cm',
-              desc: '',
+            { title: 'Krokuhdil',
+              jahr: '2002',
+              size: '18x24cm',
+              desc: 'Krokuhdil aus der Serie „Die Anprobe“',
               src: './img/Anprobe_Krokuh_2-768x588.jpg', 
-              alt: 'Krokuh' 
+              alt: 'Krokuhdil aus der Serie „Die Anprobe“' 
             },
             { title: 'Kuh',
-              jahr: '2020',
-              size: '120x80cm',
-              desc: '',
+              jahr: '2002',
+              size: '18x24cm',
+              desc: 'Kuhpie aus der Serie „Die Anprobe“',
               src: './img/Anprobe_Kuh_2-768x567.jpg', 
-              alt: 'Kuh' 
+              alt: 'Kuhpie aus der Serie „Die Anprobe“' 
             },
             { title: 'Kuhl',
-              jahr: '2020',
-              size: '120x80cm',
+              jahr: '2005',
+              size: '18x24cm',
               desc: '',
               src: './img/Anprobe_Kuhl_1-768x580.jpg', 
               alt: 'Kuhl' 
             },
             { title: 'Kuhpard',
-              jahr: '2020',
+              jahr: '2002',
               size: '120x80cm',
-              desc: '',
+              desc: 'Kuhpard aus der Serie „Die Anprobe“',
               src: './img/Anprobe_Kuhpard_2-768x586.jpg', 
-              alt: 'Kuhpard' 
+              alt: 'Kuhpard aus der Serie „Die Anprobe“' 
             },
             { title: 'Kuhraffe',
-              jahr: '2020',
-              size: '120x80cm',
-              desc: '',
+              jahr: '2002',
+              size: '18x24cm',
+              desc: 'Kuhraffe aus der Serie „Die Anprobe“',
               src: './img/Anprobe_Kuhraffe_2-768x573.jpg', 
-              alt: 'Kuhraffe' 
+              alt: 'Kuhraffe aus der Serie „Die Anprobe“' 
             },
             { title: 'Kuhrelle',
-              jahr: '2020',
-              size: '120x80cm',
-              desc: '',
+              jahr: '2002',
+              size: '18x24cm',
+              desc: 'Kuhrelle aus der Serie „Die Anprobe“',
               src: './img/Anprobe_Kuhrelle_2-768x575.jpg', 
               alt: 'Kuhrelle' 
             },
             { title: 'Schokuh',
-              jahr: '2020',
-              size: '120x80cm',
-              desc: '',
+              jahr: '2002',
+              size: '18x24cm',
+              desc: 'Schokuh aus der Serie „Die Anprobe“',
               src: './img/Anprobe_Schokuh_2-768x575.jpg', 
-              alt: 'Schokuh' 
+              alt: 'Schokuh aus der Serie „Die Anprobe“' 
             },
             { title: 'Tikuh',
-              jahr: '2020',
-              size: '120x80cm',
-              desc: '',
+              jahr: '2002',
+              size: '18x24cm',
+              desc: 'Tikuh aus der Serie „Die Anprobe“',
               src: './img/Anprobe_Tikuh_2-768x572.jpg', 
-              alt: 'Tikuh' 
+              alt: 'Tikuh aus der Serie „Die Anprobe“' 
             },
             { title: 'Batman',
               jahr: '2020',
-              size: '120x80cm',
+              size: '80x120cm',
               desc: '',
               src: './img/Batman-HP-768x515.jpg', 
               alt: 'Batman' 
             },
             { title: 'Captain America',
-              jahr: '2020',
-              size: '120x80cm',
+              jahr: '2018',
+              size: '80x120cm',
               desc: '',
               src: './img/CAFotoInternet-768x512.jpg', 
               alt: 'Captain America' 
             },
             { title: 'Deadpool',
-              jahr: '2020',
-              size: '120x80cm',
+              jahr: '2018',
+              size: '80x120cm',
               desc: '',
               src: './img/Deadpool_I-768x513.jpg', 
               alt: 'Deadpool' 
             },
             { 
               title: 'Hulk',
-              jahr: '2020',
-              size: '120x80cm',
+              jahr: '2017',
+              size: '80x120cm',
               desc: '',
               src: './img/Hulk-768x513.jpg', 
               alt: 'Hulk' 
             },
             { title: 'Ironman',
-              jahr: '2020',
-              size: '120x80cm',
+              jahr: '2018',
+              size: '80x120cm',
               desc: '',
               src: './img/IronMan_Foto_1-768x494.jpg', 
               alt: 'Ironman' 
             },
             { title: 'Nach Mass',
-              jahr: '2020',
-              size: '120x80cm',
+              jahr: '2015',
+              size: '50x70cm',
               desc: '',
               src: './img/NachMass_3-768x547.jpg', 
               alt: 'Nach Mass' 
             },
             { 
               title: 'Abends',
-              jahr: '2020',
-              size: '120x80cm',
+              jahr: '2015',
+              size: '100x120cm',
               desc: '',
               src: './img/Abends_3-768x660.jpg', 
               alt: 'Abends' 
             },
             { title: 'Himmelsstuermer',
-              jahr: '2020',
-              size: '120x80cm',
+              jahr: '2004',
+              size: '80x60cm',
               desc: '',
               src: './img/Himmelsstuermer_2-768x1033.jpg', 
               alt: 'Himmelsstuermer' 
             },
-            { title: 'Shave',
-              jahr: '2020',
-              size: '120x80cm',
+            { title: 'Shave the World',
+              jahr: '2003',
+              size: '60x80cm',
               desc: '',
               src: './img/Shave_2-768x577.jpg', 
               alt: 'Shave' 
             },
             { title: 'Yoda',
-              jahr: '2020',
-              size: '120x80cm',
+              jahr: '2016',
+              size: '80x120cm',
               desc: '',
               src: './img/Yoda-768x516.jpg', 
               alt: 'Yoda' 
             },
             { title: 'Zielgruppe',
-              jahr: '2020',
-              size: '120x80cm',
+              jahr: '2006',
+              size: '60x80cm',
               desc: '',
               src: './img/Zielgruppe_2-768x575.jpg', 
               alt: 'Zielgruppe' 
@@ -255,9 +300,10 @@ function galerieData() {
         ],
         sortiereNachJahr: function () {
             this.bilder.sort(function (a, b) {
-                return a.jahr - b.jahr;
+                return b.jahr - a.jahr;
             });
         },
+    
         galerieHTML: function () {
             return this.bilder.map(function (bild) {
                 return `
@@ -269,6 +315,10 @@ function galerieData() {
                             src="${bild.src}" 
                             alt="${bild.alt}" 
                             data-jahr="${bild.jahr}">
+                            <div class="flex justify-between p-2">
+                                <p>${bild.title}</p>
+                                <p>${bild.jahr}</p>
+                            </div>
                         </span>
 
                         <!-- Modal -->
@@ -325,5 +375,15 @@ function galerieData() {
         },
     };
 }
+
+// Checks which Viewport
+window.addEventListener('resize', () => {
+                    // Überwachen Sie die Bildschirmbreite und aktualisieren Sie den 'isMobile'-Zustand entsprechend
+    if (window.innerWidth <= 768) {
+        Alpine.store('isMobile', true);
+    } else {
+        Alpine.store('isMobile', false);
+    }
+});
 
 </script>
