@@ -77,10 +77,7 @@
             <p class="text-md">Some random text</p>
         </div>
 
-        <div x-data="galerieData()">
-             <button class="mt-8 flex space-x-2" @click="sortiereNachJahr">
-                Nach Jahr sortieren
-            </button> 
+        <div> 
             <div id="gallery" class="grid grid-cols-2 md:grid-cols-4 gap-4 py-4" x-html="galerieHTML"></div>
         </div>
         <div id="#ausstellungen">
@@ -358,11 +355,7 @@ function galerieData() {
                                     </div>
 
                                     <!-- Buttons -->
-                                    <div class="mt-2 flex space-x-2">
-                                        <button type="button" x-on:click="open = false" class="rounded-md border border-gray-200 bg-white px-5 py-2.5">
-                                            Preis anfragen
-                                        </button>
-
+                                    <div class="mt-2">
                                         <button type="button" x-on:click="open = false" class="rounded-md border border-gray-200 bg-white px-5 py-2.5">
                                             Back
                                         </button>
@@ -375,6 +368,7 @@ function galerieData() {
         },
     };
 }
+Alpine.data('galerieData', galerieData);
 
 // Checks which Viewport
 window.addEventListener('resize', () => {
