@@ -43,13 +43,13 @@
                     <div x-show="isActive" class="w-full" id="navbar-hamburger">
                         <ul class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
                         <li>
-                            <a href="/" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded dark:bg-blue-600" aria-current="page">Home</a>
+                            <a href="#gallery" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded dark:bg-blue-600" aria-current="page">Gallery</a>
                         </li>
                         <li>
                             <a href="#austellungen" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Ausstellungen</a>
                         </li>
                         <li>
-                            <a href="#kontakt" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Contact</a>
+                            <a href="#kontakt" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Kontakt</a>
                         </li>
                         </ul>
                     </div>
@@ -64,7 +64,7 @@
                             <a href="/" class="text-white text-2xl font-bold">Gallery</a>
                         </div>
                         <div class="space-x-4">
-                            <a href="/" class="text-white hover:text-gray-400">Home</a>
+                            <a href="#gallery" class="text-white hover:text-gray-400">Gallery</a>
                             <a href="#ausstellungen" class="text-white hover:text-gray-400">Ausstellungen</a>
                             <a href="#kontakt" class="text-white hover:text-gray-400">Kontakt</a>
                         </div>
@@ -74,41 +74,55 @@
         </div>
         
 
-        <div class="mt-6 mb-2 p-5">
-            <h3 class="text-5xl">Hello World</h3>
-            <p class="text-md">Some random text</p>
-        </div>
-
-        <section> 
+        <section id="gallery" class="ml-3 my-20">
+            <h3 class="text-4xl mb-5">Hello World</h3>
+            <div class="text-md">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            </div>
             <div id="gallery" class="grid grid-cols-2 md:grid-cols-4 gap-4 py-4" x-html="galerieHTML"></div>
         </section>
 
-        <section id="ausstellungen" class="my-20">
+        <section> 
+            
+        </section>
+
+        <section id="ausstellungen" class="ml-3 my-20">
             <h3 class="text-4xl mb-5">Austellungen</h3>
-            <div class="text-md">
+            <div class="text-md mx-5">
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
             </div>
         </section>
 
-        <section id="kontakt" class="mb-10">
+        <section id="kontakt" class="ml-3 mb-10">
             <h3 class="text-4xl mb-5">Kontakt</h3>
             
-            <div x-data="{ formSubmitted: false }">
-                <div class="max-w-md mx-auto mt-8">
-                    <form x-show="!formSubmitted" @submit.prevent="submitForm">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required>
+            <div x-data="{ formSubmitted: false }" class=" flex items-center justify-center">
+                <div class="max-w-full w-full bg-white p-8 rounded shadow-md">
+                    <form x-show="!formSubmitted" @submit.prevent="submitForm" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-600">Name:</label>
+                            <input type="text" id="name" name="name" required class="mt-1 p-2 w-full border rounded">
+                        </div>
             
-                        <label for="email">E-Mail:</label>
-                        <input type="email" id="email" name="email" required>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-600">E-Mail:</label>
+                            <input type="email" id="email" name="email" required class="mt-1 p-2 w-full border rounded">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-600">Nachricht:</label>
+                            <textarea id="message" name="message" rows="4" required class="mt-1 p-2 w-full border rounded"></textarea>
+                        </div>
             
                         <!-- reCAPTCHA -->
-                        <div class="g-recaptcha" data-sitekey="DEIN_RECAPTCHA_SITE_KEY"></div>
+                        <div class="mt-4">
+                            <div class="g-recaptcha" data-sitekey="DEIN_RECAPTCHA_SITE_KEY"></div>
+                        </div>
             
-                        <button type="submit">Absenden</button>
+                        <button type="submit" class="w-1/2 bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Absenden</button>
                     </form>
             
-                    <div x-show="formSubmitted">
+                    <div x-show="formSubmitted" class="mt-4 text-green-700">
                         <p>Vielen Dank! Das Formular wurde erfolgreich abgesendet.</p>
                     </div>
                 </div>
