@@ -8,6 +8,8 @@
     <script defer src="https://unpkg.com/@alpinejs/ui@3.13.1-beta.0/dist/cdn.min.js"></script>
     <script defer src="https://unpkg.com/@alpinejs/focus@3.13.1/dist/cdn.min.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.13.1/dist/cdn.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
     <style>
         
     </style>
@@ -90,8 +92,49 @@
 
         <section id="kontakt" class="mb-10">
             <h3 class="text-4xl mb-5">Kontakt</h3>
-            <div class="text-md">
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            
+            <div x-data="{ formSubmitted: false }">
+                <div class="max-w-md mx-auto mt-8">
+                    <form x-show="!formSubmitted" @submit.prevent="submitForm">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+            
+                        <label for="email">E-Mail:</label>
+                        <input type="email" id="email" name="email" required>
+            
+                        <!-- reCAPTCHA -->
+                        <div class="g-recaptcha" data-sitekey="DEIN_RECAPTCHA_SITE_KEY"></div>
+            
+                        <button type="submit">Absenden</button>
+                    </form>
+            
+                    <div x-show="formSubmitted">
+                        <p>Vielen Dank! Das Formular wurde erfolgreich abgesendet.</p>
+                    </div>
+                </div>
+            
+                <script>
+                    function submitForm() {
+                        // Hier kannst du die Logik für den Formularversand implementieren,
+                        // z.B. eine AJAX-Anfrage an den Server senden.
+                        // Wenn der Server erfolgreich antwortet, setze formSubmitted auf true.
+            
+                        // Beispiel:
+                        // fetch('/dein-formular-endpunkt', {
+                        //     method: 'POST',
+                        //     body: new FormData(document.querySelector('form')),
+                        // })
+                        // .then(response => response.json())
+                        // .then(data => {
+                        //     if (data.success) {
+                        //         formSubmitted = true;
+                        //     }
+                        // })
+                        // .catch(error => console.error('Fehler beim Formularversand:', error));
+                    }
+            
+                    window.submitForm = submitForm;
+                </script>
             </div>
         </section>
 
