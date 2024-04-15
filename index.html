@@ -132,25 +132,20 @@
                 
                     <script>
                         function submitForm() {
-                            // Hier kannst du die Logik für den Formularversand implementieren,
-                            // z.B. eine AJAX-Anfrage an den Server senden.
-                            // Wenn der Server erfolgreich antwortet, setze formSubmitted auf true.
-                
-                            // Beispiel:
-                            // fetch('/dein-formular-endpunkt', {
-                            //     method: 'POST',
-                            //     body: new FormData(document.querySelector('form')),
-                            // })
-                            // .then(response => response.json())
-                            // .then(data => {
-                            //     if (data.success) {
-                            //         formSubmitted = true;
-                            //     }
-                            // })
-                            // .catch(error => console.error('Fehler beim Formularversand:', error));
+                            fetch('send_form.php', {
+                                method: 'POST',
+                                body: new FormData(document.querySelector('form')),
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    formSubmitted = true;
+                                } else {
+                                    console.error('Fehler beim Formularversand:', data.error);
+                                }
+                            })
+                            .catch(error => console.error('Fehler beim Formularversand:', error));
                         }
-                
-                        window.submitForm = submitForm;
                     </script>
                 </div>
             </section>
