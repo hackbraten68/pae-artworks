@@ -16,7 +16,7 @@
 </head>
 
 <body x-data="galerieData()" x-init="sortiereNachJahr">
-    <div class="body-wrapper max-w-screen-xl">
+    <div class="body-wrapper">
         <div x-data="{ isMobile: window.innerWidth <= 768 }">
             <div x-show="isMobile">                
                 <nav 
@@ -74,12 +74,14 @@
             </div>
         </div>
         
-        <div class="mx-[8px] md:mx-4">
-            <section class="pt-20">
-                <img src="/img/logo.png" alt="Logo PAE-Artworks">
+        <div class="w-full flex justify-center items-center">
+            
+        <div class="px-[8px] md:px-4">
+            <section class="pt-20 flex justify-center items-center">
+                <img src="/img/logo.png" alt="Logo PAE-Artworks" class="max-w-full md:max-w-[800px]">
             </section>
             
-            <section id="gallery" class="mb-20 pt-20">
+            <section id="gallery" class="mb-20 md:pt-20">
                 <h3 class="text-4xl mb-5">Liebe Gäste</h3>
                 <div class="text-md">
                     <p>Willkommen auf meiner neuen Webseite.</p>
@@ -152,6 +154,7 @@
                     </script>
                 </div>
             </section>
+        </div>
         </div>
 
         <footer class="bg-gray-800 text-white py-5 px-10">
