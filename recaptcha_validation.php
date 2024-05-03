@@ -3,8 +3,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $recaptchaResponse = $_POST["g-recaptcha-response"];
 
     // Überprüfe das reCAPTCHA
-    $recaptchaSecretKey = "6LeeDk8pAAAAALGBFY6aggnwwm06z-nHDtN4yyB_";
-    $recaptchaUrl = "https://www.google.com/recaptcha/api/siteverify";
+    $recaptchaSecretKey = "SECRET_ACCESS_KEY";
+    $recaptchaUrl = "CAPTCHA_URL";
     $recaptchaData = [
         "secret" => $recaptchaSecretKey,
         "response" => $recaptchaResponse
